@@ -41,15 +41,15 @@ class _NavBarScaffoldState extends State<NavBarScaffold> {
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
-          label: 'Home 1',
+          label: 'NavBar 0',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.business),
-          label: 'Home 2',
+          label: 'NavBar 1',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.school),
-          label: 'Home 3',
+          label: 'NavBar 2',
         ),
       ],
       currentIndex: _currentIndex,
@@ -70,7 +70,7 @@ class _NavBarScaffoldState extends State<NavBarScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    print("[Build] NavBarScaffold");
+    print("[Build] NavBarScaffold " + NavBarScaffold.path);
     return Scaffold(
       appBar: AppBar(
         title: Text("BottomNav App"),
