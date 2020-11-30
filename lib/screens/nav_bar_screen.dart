@@ -41,8 +41,11 @@ class NavBarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _navBarChildren
-        .elementAt(Provider.of<BottomNavProvider>(context).currentIndex);
+    print("[Build] NavBarScreen");
+    return IndexedStack(
+      index: Provider.of<BottomNavProvider>(context).currentIndex,
+      children: _navBarChildren,
+    );
   }
 }
 
@@ -52,6 +55,7 @@ class NavBarChildScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("[Build] NavBarChildScreen " + index.toString());
     return Center(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,

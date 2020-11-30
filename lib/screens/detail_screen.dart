@@ -5,6 +5,7 @@ class DetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("[Build] DetailScreen");
     return Center(
       child:
           Text("Detail Screen", style: Theme.of(context).textTheme.headline5),

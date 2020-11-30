@@ -16,6 +16,7 @@ class BaseScaffold extends StatefulWidget {
 class _BaseScaffoldState extends State<BaseScaffold> {
   @override
   Widget build(BuildContext context) {
+    print("[Build] BaseScaffoldScreen " + widget.path);
     return ChangeNotifierProvider<BottomNavProvider>(
       create: (BuildContext context) => BottomNavProvider(),
       child:
