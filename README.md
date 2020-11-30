@@ -1,6 +1,6 @@
-# bottom_nav_v1
+# Using BottomNavigationBar with Navigator
 
-A new Flutter project.
+![App demo](/assets/app-demo.gif)
 
 ## Getting Started
 
