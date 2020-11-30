@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class NavBarScaffold extends StatefulWidget {
   static const String path = "/home";
 
+  NavBarScaffold({Key key}) : super(key: key);
+
   @override
   _NavBarScaffoldState createState() => _NavBarScaffoldState();
 }
@@ -82,27 +84,29 @@ class _NavBarScaffoldState extends State<NavBarScaffold> {
       ),
       bottomNavigationBar: buildBottonNavBar(),
     );
-
-/*     return IndexedStack(
-      index: Provider.of<BottomNavProvider>(context).currentIndex,
-      children: _navBarChildren,
-    ); */
   }
 }
 
-class NavBarChildScreen extends StatelessWidget {
+class NavBarChildScreen extends StatefulWidget {
   final int index;
   const NavBarChildScreen({@required this.index});
 
   @override
+  _NavBarChildScreenState createState() => _NavBarChildScreenState();
+}
+
+class _NavBarChildScreenState extends State<NavBarChildScreen>
+    with AutomaticKeepAliveClientMixin<NavBarChildScreen> {
+  @override
   Widget build(BuildContext context) {
-    print("[Build] NavBarChildScreen " + index.toString());
+    print("[Build] NavBarChildScreen " + widget.index.toString());
+    super.build(context);
     return Center(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text("Nav Bar Child " + index.toString() + " Screen",
+        Text("Nav Bar Child " + widget.index.toString() + " Screen",
             style: Theme.of(context).textTheme.headline5),
         SizedBox(height: 50),
         RaisedButton(
@@ -115,4 +119,7 @@ class NavBarChildScreen extends StatelessWidget {
       ],
     ));
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
