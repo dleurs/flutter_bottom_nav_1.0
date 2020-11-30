@@ -23,8 +23,7 @@ class MyApp extends StatelessWidget {
             case FirstScreen.path: // "/"
               return BaseScaffold(path: FirstScreen.path, body: FirstScreen());
             case NavBarScaffold.path: // "/home"
-              return BaseScaffold(
-                  path: NavBarScaffold.path, body: NavBarScaffold());
+              return NavBarScaffold();
             case DetailScreen.path: // "/home/detail"
               return BaseScaffold(
                   path: DetailScreen.path, body: DetailScreen());

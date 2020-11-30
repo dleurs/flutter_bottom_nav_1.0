@@ -1,4 +1,4 @@
-import 'package:bottom_nav_v1/screens/detail_screen.dart';
+import 'package:bottom_nav_v1/screens/nav_bar_child_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavBarScaffold extends StatefulWidget {
@@ -70,7 +70,7 @@ class _NavBarScaffoldState extends State<NavBarScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    print("[Build] NavBarScreen");
+    print("[Build] NavBarScaffold");
     return Scaffold(
       appBar: AppBar(
         title: Text("BottomNav App"),
@@ -85,41 +85,4 @@ class _NavBarScaffoldState extends State<NavBarScaffold> {
       bottomNavigationBar: buildBottonNavBar(),
     );
   }
-}
-
-class NavBarChildScreen extends StatefulWidget {
-  final int index;
-  const NavBarChildScreen({@required this.index});
-
-  @override
-  _NavBarChildScreenState createState() => _NavBarChildScreenState();
-}
-
-class _NavBarChildScreenState extends State<NavBarChildScreen>
-    with AutomaticKeepAliveClientMixin<NavBarChildScreen> {
-  @override
-  Widget build(BuildContext context) {
-    print("[Build] NavBarChildScreen " + widget.index.toString());
-    super.build(context);
-    return Center(
-        child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text("Nav Bar Child " + widget.index.toString() + " Screen",
-            style: Theme.of(context).textTheme.headline5),
-        SizedBox(height: 50),
-        RaisedButton(
-          child: Text("Detail Screen",
-              style: Theme.of(context).textTheme.headline6),
-          onPressed: () {
-            Navigator.pushNamed(context, DetailScreen.path);
-          },
-        )
-      ],
-    ));
-  }
-
-  @override
-  bool get wantKeepAlive => true;
 }
