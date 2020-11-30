@@ -1,4 +1,4 @@
-import 'package:bottom_nav_v1/screens/nav_bar_screen.dart';
+import 'package:bottom_nav_v1/screens/nav_bar_scaffold.dart';
 import 'package:flutter/material.dart';
 
 class FirstScreen extends StatelessWidget {
@@ -17,7 +17,7 @@ class FirstScreen extends StatelessWidget {
             child: Text("Home Screen",
                 style: Theme.of(context).textTheme.headline6),
             onPressed: () {
-              Navigator.pushNamed(context, NavBarScreen.path);
+              Navigator.pushNamed(context, NavBarScaffold.path);
             },
           )
         ],

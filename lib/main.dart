@@ -1,7 +1,7 @@
 import 'package:bottom_nav_v1/screens/base_scaffold.dart';
 import 'package:bottom_nav_v1/screens/detail_screen.dart';
 import 'package:bottom_nav_v1/screens/first_screen.dart';
-import 'package:bottom_nav_v1/screens/nav_bar_screen.dart';
+import 'package:bottom_nav_v1/screens/nav_bar_scaffold.dart';
 import 'package:bottom_nav_v1/screens/unknown_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
           switch (settings.name) {
             case FirstScreen.path: // "/"
               return BaseScaffold(path: FirstScreen.path, body: FirstScreen());
-            case NavBarScreen.path: // "/home"
+            case NavBarScaffold.path: // "/home"
               return BaseScaffold(
-                  path: NavBarScreen.path, body: NavBarScreen());
+                  path: NavBarScaffold.path, body: NavBarScaffold());
             case DetailScreen.path: // "/home/detail"
               return BaseScaffold(
                   path: DetailScreen.path, body: DetailScreen());

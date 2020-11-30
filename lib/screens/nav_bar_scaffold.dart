@@ -1,12 +1,40 @@
-import 'package:bottom_nav_v1/models/bottom_nav_provider.dart';
 import 'package:bottom_nav_v1/screens/detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class NavBarScreen extends StatelessWidget {
+class NavBarScaffold extends StatefulWidget {
   static const String path = "/home";
 
-  static Widget buildBottonNavBar({@required BuildContext context}) {
+  @override
+  _NavBarScaffoldState createState() => _NavBarScaffoldState();
+}
+
+class _NavBarScaffoldState extends State<NavBarScaffold> {
+  int _currentIndex;
+  List<Widget> _pages;
+  PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _currentIndex = 0;
+
+    _pages = <Widget>[
+      NavBarChildScreen(
+        index: 0,
+      ),
+      NavBarChildScreen(
+        index: 1,
+      ),
+      NavBarChildScreen(
+        index: 2,
+      )
+    ];
+
+    _pageController = PageController(initialPage: _currentIndex);
+  }
+
+  Widget buildBottonNavBar() {
     return BottomNavigationBar(
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
@@ -22,30 +50,43 @@ class NavBarScreen extends StatelessWidget {
           label: 'Home 3',
         ),
       ],
-      currentIndex: Provider.of<BottomNavProvider>(context).currentIndex,
-      onTap: Provider.of<BottomNavProvider>(context).setIndex,
+      currentIndex: _currentIndex,
+      onTap: (selectedPageIndex) {
+        setState(() {
+          _currentIndex = selectedPageIndex;
+          _pageController.jumpToPage(selectedPageIndex);
+        });
+      },
     );
   }
 
-  static const List<Widget> _navBarChildren = <Widget>[
-    NavBarChildScreen(
-      index: 0,
-    ),
-    NavBarChildScreen(
-      index: 1,
-    ),
-    NavBarChildScreen(
-      index: 2,
-    ),
-  ];
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     print("[Build] NavBarScreen");
-    return IndexedStack(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("BottomNav App"),
+      ),
+      body: PageView(
+        controller: _pageController,
+        //The following parameter is just to prevent
+        //the user from swiping to the next page.
+        physics: NeverScrollableScrollPhysics(),
+        children: _pages,
+      ),
+      bottomNavigationBar: buildBottonNavBar(),
+    );
+
+/*     return IndexedStack(
       index: Provider.of<BottomNavProvider>(context).currentIndex,
       children: _navBarChildren,
-    );
+    ); */
   }
 }
 
