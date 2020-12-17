@@ -37,5 +37,14 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+              <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <!-- Accepts URIs that begin with YOUR_SCHEME://YOUR_HOST -->
+        <data
+          android:scheme="MySuperApp"
+          android:host="mysuperapp.dleurs.fr" />
+      </intent-filter>
     </application>
 </manifest>

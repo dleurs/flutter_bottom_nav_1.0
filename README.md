@@ -2,6 +2,18 @@
 
 ![App demo](/assets/app-demo.gif)
 
+Uni links :
+- https://pub.dev/packages/uni_links
+- https://medium.com/flutter-community/deep-links-and-flutter-applications-how-to-handle-them-properly-8c9865af9283
+
+
+I only do non-host links, change : 
+```yaml
+          android:scheme="MySuperApp"
+          android:host="mysuperapp.dleurs.fr" 
+```
+in android/app/src/main/AndroidManifest.xml
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
