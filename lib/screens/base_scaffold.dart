@@ -13,7 +13,7 @@ class BaseScaffold extends StatefulWidget {
 class _BaseScaffoldState extends State<BaseScaffold> {
   @override
   Widget build(BuildContext context) {
-    print("[Build] BaseScaffoldScreen " + widget.path);
+    print("[Build] BaseScaffold" + widget.path);
     return Scaffold(
       appBar: AppBar(
         title: Text("BottomNav App"),
