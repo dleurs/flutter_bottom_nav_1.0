@@ -3,18 +3,18 @@
 <plist version="1.0">
 <dict>
   <key>CFBundleURLTypes</key>
-  <array>
-    <dict>
-      <key>CFBundleTypeRole</key>
-      <string>Editor</string>
-      <key>CFBundleURLName</key>
-      <string>[ANY_URL_NAME]</string>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>[YOUR_SCHEME]</string>
-      </array>
-    </dict>
-  </array>
+  	<array>
+    	<dict>
+     	 <key>CFBundleTypeRole</key>
+    	  <string>Editor</string>
+    	  <key>CFBundleURLName</key>
+    	  <string>mysuperapp.dleurs.fr</string>
+   	 	  <key>CFBundleURLSchemes</key>
+    	  <array>
+       	 	<string>mysuperapp</string>
+      		</array>
+    	</dict>
+  	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
